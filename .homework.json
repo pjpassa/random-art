@@ -1,0 +1,10 @@
+{
+  "name": "random-art",
+  "version": "1.0.0",
+  "title": "Random Art",
+  "description": "Create art using Python's random module and math functions.",
+  "keywords": [
+    "random",
+    "math"
+  ]
+}
