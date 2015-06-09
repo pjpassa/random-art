@@ -1,5 +1,5 @@
 import random
-from math import pi, sin, cos, lgamma, log2, log1p, exp
+from math import pi, sin, cos, tan, atan, acos, asin
 import perlin_noise as pn
 # Your job is to create better version of create_expression and
 # run_expression to create random art.
@@ -25,15 +25,18 @@ def create_expression():
     func1 = f()
     func2 = f()
     func3 = f()
+    func4 = f()
+    func5 = f()
 
     def expr(x, y):
-        value1 = trig1(func1(pn.perlinNoise((x + offset_1x, y + offset_1y),
-                       grid_size1, angles1)) * pi)
-        value2 = trig2(pn.perlinNoise((x + offset_2x, y + offset_2y),
-                       grid_size2, angles2) * pi)
+        value1 = trig2(pi * func5(trig1(func1(pn.perlinNoise((x + offset_1x,
+                       y + offset_1y), grid_size1, angles1)) * pi)))
+        value2 = trig2(func3(pn.perlinNoise((x + offset_2x, y + offset_2y),
+                       grid_size2, angles2) * pi))
         value3 = trig1(func2(pn.perlinNoise((x + offset_2y, y + offset_1x),
                        grid_size3, angles3)) * pi)
-        return trig2(pi * trig3(pi * func2(value1 * value2 - (value3 + x * y))))
+        return trig2(pi * func4(trig3(pi * func2(value1 *
+                     value2 - (value3 + x * y)))))
     return expr
 
 
@@ -58,4 +61,4 @@ def trig_func():
 
 
 def f():
-        return sin
+        return random.choice([sin, tan, cos, atan])
