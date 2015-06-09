@@ -14,6 +14,7 @@ def create_expression():
     angles3 = generate_angles()
     grid_size1 = generate_grid_size()
     grid_size2 = generate_grid_size()
+    grid_size3 = generate_grid_size()
     offset_1x = random.random()
     offset_1y = random.random()
     offset_2x = random.random()
@@ -30,9 +31,9 @@ def create_expression():
                        grid_size1, angles1)) * pi)
         value2 = trig2(pn.perlinNoise((x + offset_2x, y + offset_2y),
                        grid_size2, angles2) * pi)
-        value3 = trig1(func2(pn.perlinNoise((x + offset_2x, y + offset_2y),
-                       random.randint(530, 550), angles3)) * pi)
-        return trig3(pi * func2(pn.dotProduct((value1, value2), (value3 + x, y))))
+        value3 = trig1(func2(pn.perlinNoise((x + offset_2y, y + offset_1x),
+                       grid_size3, angles3)) * pi)
+        return trig2(pi * trig3(pi * func2(value1 * value2 - (value3 + x * y))))
     return expr
 
 
